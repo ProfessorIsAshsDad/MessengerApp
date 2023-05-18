@@ -9,7 +9,12 @@ const server = http.createServer(app);
 
 
 //setup new socket io server, specify Cors methods used
-const io = socketio(server)
+const io = new Server(server, {
+    cors: {
+        origin: " https://sweet-pony-7f337f.netlify.app",
+        methods: ["GET", "POST"]
+    },
+});
 
 //initiate connection event to the server, initiate callback function, specify socket and event listeners.
 io.on("connection", (socket) => {
