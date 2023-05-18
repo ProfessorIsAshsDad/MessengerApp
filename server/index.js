@@ -7,26 +7,27 @@ app.use(cors());
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"]
-    },
-});
 
+//setup new socket io server, specify Cors methods used
+const io = socketio(server)
+
+//initiate connection event to the server, initiate callback function, specify socket and event listeners.
 io.on("connection", (socket) => {
     console.log(`User Connected: ${socket.id}`);
   
+    //data from front-end over to server to detect the joining of a room
     socket.on("join_room", (data) => {
       socket.join(data);
       console.log(`User with ID: ${socket.id} joined room: ${data}`);
     });
 
+    //data from front-end over to server to detect the sending and receiving of messages.
     socket.on("send_message", (data) => {
         console.log(data)
         socket.to(data.room).emit("receive_message" ,data)
     });
 
+    //listening event for disconnection from the server
     socket.on("disconnect", () => {
       console.log("User Disconnected", socket.id);
     });
