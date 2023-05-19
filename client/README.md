@@ -1,3 +1,18 @@
+Before push to github
+
+cd client
+
+npm run build
+
+netlify deploy
+
+publish branch = ./build
+
+push to github
+
+go to https://dashboard.render.com/web/srv-chiuj2rhp8ufsblh8t5g/deploys/dep-chiv6o5269v2e2c8cca0 and manual deploy
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

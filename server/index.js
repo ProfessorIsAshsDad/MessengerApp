@@ -11,7 +11,7 @@ const server = http.createServer(app);
 //setup new socket io server, specify Cors methods used
 const io = new Server(server, {
     cors: {
-        origin: " https://sweet-pony-7f337f.netlify.app",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"]
     },
 });

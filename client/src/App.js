@@ -6,7 +6,7 @@ import Chat from './Chat';
 
 
 //create link to socket.io server http link
-const socket = io.connect("https://messengerapp-f3tw.onrender.com")
+const socket = io.connect("http://localhost:3001")
 
 
 function App() {
